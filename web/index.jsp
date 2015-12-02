@@ -17,17 +17,17 @@
   <body ng-app="myApp">
 
   <div ng-controller="controller">
-    <p>{{1+1}}</p>
+    <%--<p>{{1+1}}</p>--%>
     <p ng-repeat="i in arr track by $index">{{i}}</p>
   </div>
 
 
 
-  <div class="col-md-6 col-md-offset-3">
-    <h2>Login</h2>
-    <form name="form" ng-submit="logging()" ng-controller="controller">
+  <div class="col-md-3 col-md-offset-3">
+    <h2>Welcome!</h2>
+    <form name="form" ng-submit="logging()" ng-controller="controller" role="form">
       <div class="form-group">
-        <label for="username">Username</label>
+        <label for="username">Login</label>
         <input type="text" name="username" id="username" class="form-control" ng-model="username" placeholder="Input name please" required/>
       </div>
       <div class="form-group">
@@ -36,9 +36,9 @@
       </div>
       <div class="form-actions">
         <button type="submit" class="btn btn-primary">Login</button>
-        <%--<a href="reg" class="btn btn-link">Register</a>--%>
+        <a href="WEB-INF/page/reg.jsp" class="btn btn-link">Register</a>
       </div>
-      <p ng-repeat="i in arr track by $index">{{i}}</p>
+      <p ng-repeat="i in array track by $index">{{i}}</p>
     </form>
   </div>
 

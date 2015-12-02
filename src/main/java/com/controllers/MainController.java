@@ -5,6 +5,7 @@ import com.db.UsersEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -29,12 +31,18 @@ public class MainController {
 
     @RequestMapping("/angular")
     public List<String> printWelcomeAngular() {
-        System.out.println("ANGULAR111");
 
-        return Arrays.asList("1", "2", "1", "2");
+        return Collections.singletonList("test success");
     }
 
-    @RequestMapping(value = "/log", method = RequestMethod.POST)
+    @RequestMapping(value = "/log/{username}", method = RequestMethod.POST)
+    public List<String> log(@PathVariable("username") String username) {
+
+        System.out.println(username);
+        return Collections.singletonList("response log");
+    }
+
+    /*@RequestMapping(value = "/log", method = RequestMethod.POST)
     public List<UsersEntity> reg() {
         System.out.println("LOG111");
         List list = null;
@@ -56,5 +64,5 @@ public class MainController {
             e.printStackTrace();
         }
         return listUsers;
-    }
+    }*/
 }

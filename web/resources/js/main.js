@@ -5,10 +5,10 @@ angular.module('myApp', [])
         $scope.arr = response.data;
     });
 
-    $http.post('/log').then(function (response) {
-        $scope.logging = function(){
+    $http.post('/log/' + $scope.username).then(function (response) {
+        $scope.logging = function() {
             alert($scope.username);
-            //$scope.arr = response.data;
+            $scope.array = response.data;
         }
     });
 
