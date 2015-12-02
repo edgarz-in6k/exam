@@ -3,15 +3,16 @@ package com.db;
 import java.sql.SQLException;
 import java.util.List;
 
-public class ImplementsDAO implements DAO {
+public class ImplementsDAO extends DAO {
     @Override
-    public void addUser(String name, String password, Integer id_roles) throws SQLException {
-
+    public void addUser(String name, String password, String role) throws SQLException {
+        UsersEntity usersEntity = new UsersEntity(name, password, role);
+        sessionFactory.getCurrentSession().save(usersEntity);
     }
 
     @Override
     public void deleteUser(String name) throws SQLException {
-
+        //sessionFactory.getCurrentSession().delete();
     }
 
     @Override

@@ -20,13 +20,13 @@ public class UsersEntity {
     private String password;
 
     @Column(name = "role")
-    private Integer role;
+    private String role;
 
     public UsersEntity() {
 
     }
 
-    public UsersEntity(String name, String password, Integer role) {
+    public UsersEntity(String name, String password, String role) {
         this.name = name;
         this.password = password;
         this.role = role;
@@ -44,7 +44,7 @@ public class UsersEntity {
         return password;
     }
 
-    public Integer getRole() {
+    public String getRole() {
         return role;
     }
 
@@ -60,7 +60,7 @@ public class UsersEntity {
         this.password = password;
     }
 
-    public void setRole(Integer role) {
+    public void setRole(String role) {
         this.role = role;
     }
 }
