@@ -13,10 +13,10 @@ public abstract class DAO {
     @Autowired
     public SessionFactory sessionFactory;
 
-    public abstract UsersEntity getUser(String name) throws SQLException;
+    public abstract UsersEntity getUser(String login) throws SQLException;
     public abstract UsersEntity getUserById(Integer id) throws SQLException;
-    public abstract void addUser(String name, String password, String role) throws SQLException;
-    public abstract void deleteUser(String name) throws SQLException;
+    public abstract void addUser(String login, String password, Integer id_role) throws SQLException;
+    public abstract void deleteUser(String login) throws SQLException;
     public abstract void deleteUserById(Integer id) throws SQLException;
     public abstract List getList() throws SQLException;
     public abstract List getUsersList() throws SQLException;

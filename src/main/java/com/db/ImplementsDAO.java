@@ -5,8 +5,8 @@ import java.util.List;
 
 public class ImplementsDAO extends DAO {
     @Override
-    public UsersEntity getUser(String name) throws SQLException {
-        String SQL_QUERY = "SELECT * FROM Users WHERE Users.name = " + name;
+    public UsersEntity getUser(String login) throws SQLException {
+        String SQL_QUERY = "SELECT * FROM Users WHERE Users.login = " + login;
         return (UsersEntity) sessionFactory.getCurrentSession().createSQLQuery(SQL_QUERY).list().get(0);
     }
 
@@ -17,14 +17,14 @@ public class ImplementsDAO extends DAO {
     }
 
     @Override
-    public void addUser(String name, String password, String role) throws SQLException {
-        UsersEntity usersEntity = new UsersEntity(name, password, role);
+    public void addUser(String login, String password, Integer id_role) throws SQLException {
+        UsersEntity usersEntity = new UsersEntity(login, password, id_role);
         sessionFactory.getCurrentSession().save(usersEntity);
     }
 
     @Override
-    public void deleteUser(String name) throws SQLException {
-        String SQL_QUERY = "DELETE FROM Users WHERE Users.name = " + name;
+    public void deleteUser(String login) throws SQLException {
+        String SQL_QUERY = "DELETE FROM Users WHERE Users.login = " + login;
         sessionFactory.getCurrentSession().createSQLQuery(SQL_QUERY);
     }
 
@@ -42,13 +42,13 @@ public class ImplementsDAO extends DAO {
 
     @Override
     public List getUsersList() throws SQLException {
-        String SQL_QUERY = "SELECT * FROM Users WHERE Users.role = " + "USER";
+        String SQL_QUERY = "SELECT * FROM Users WHERE Users.id_roles = " + 2;
         return sessionFactory.getCurrentSession().createSQLQuery(SQL_QUERY).list();
     }
 
     @Override
     public List getAdminList() throws SQLException {
-        String SQL_QUERY = "SELECT * FROM Users WHERE Users.role = " + "ADMIN";
+        String SQL_QUERY = "SELECT * FROM Users WHERE Users.id_roles = " + 1;
         return sessionFactory.getCurrentSession().createSQLQuery(SQL_QUERY).list();
     }
 }

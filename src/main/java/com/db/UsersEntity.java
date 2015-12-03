@@ -10,57 +10,57 @@ public class UsersEntity {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "id_users")
+    private Integer id_users;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "login")
+    private String login;
 
     @Column(name = "password")
     private String password;
 
-    @Column(name = "role")
-    private String role;
+    @Column(name = "id_roles")
+    private Integer id_roles;
 
     public UsersEntity() {
 
     }
 
-    public UsersEntity(String name, String password, String role) {
-        this.name = name;
+    public UsersEntity(String login, String password, Integer id_roles) {
+        this.login = login;
         this.password = password;
-        this.role = role;
+        this.id_roles = id_roles;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getId_users() {
+        return id_users;
     }
 
-    public String getName() {
-        return name;
+    public void setId_users(Integer id_users) {
+        this.id_users = id_users;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public Integer getId_roles() {
+        return id_roles;
+    }
+
+    public void setId_roles(Integer id_roles) {
+        this.id_roles = id_roles;
     }
 }
