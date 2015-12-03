@@ -21,4 +21,6 @@ public abstract class DAO {
     public abstract List getList() throws SQLException;
     public abstract List getUsersList() throws SQLException;
     public abstract List getAdminList() throws SQLException;
+    public abstract List getListPages(UsersEntity usersEntity) throws SQLException;
+    public abstract List getListPages(String id) throws SQLException;
 }

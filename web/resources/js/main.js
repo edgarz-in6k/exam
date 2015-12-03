@@ -10,15 +10,12 @@ angular.module('myApp', [])
 
         $scope.check = function(userName, userPass) {
             $http.post("/log/" + userName + "/" + userPass).then(function (response) {
-                    //updateUsers();
                 var data = response.data;
-                if (data == "Undefined" || data == "Incorrect password")
-                    $scope.array = data;
-                else {
-                    $scope.array = "";
+                if (data != "Undefined" && data != "Incorrect password") {
                     $scope.showLogin = false;
                     $scope.showList = true;
                 }
+                $scope.array = data;
             });
         };
 

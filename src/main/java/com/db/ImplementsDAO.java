@@ -51,4 +51,20 @@ public class ImplementsDAO extends DAO {
         String SQL_QUERY = "SELECT * FROM Users WHERE Users.id_roles = " + 1;
         return sessionFactory.getCurrentSession().createSQLQuery(SQL_QUERY).list();
     }
+
+    @Override
+    public List getListPages(UsersEntity usersEntity) throws SQLException {
+        String SQL_QUERY = "SELECT P.path, A.title FROM Pages P, (SELECT id_roles FROM Users WHERE id_users = " +
+                usersEntity.getId_users() +
+                ") U, Access A WHERE P.id_roles = U.id_roles AND P.id_access = A.id_access;";
+        return sessionFactory.getCurrentSession().createSQLQuery(SQL_QUERY).list();
+    }
+
+    @Override
+    public List getListPages(String id) throws SQLException {
+        String SQL_QUERY = "SELECT P.path, A.title FROM Pages P, (SELECT id_roles FROM Users WHERE id_users = " +
+                Integer.parseInt(id) +
+                ") U, Access A WHERE P.id_roles = U.id_roles AND P.id_access = A.id_access;";
+        return sessionFactory.getCurrentSession().createSQLQuery(SQL_QUERY).list();
+    }
 }

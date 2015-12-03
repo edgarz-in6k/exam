@@ -31,13 +31,18 @@
         </div>
         <div class="form-actions">
           <button type="submit" class="btn btn-primary" ng-click="check(username, password)">Login</button>
-          <a href="WEB-INF/page/reg.jsp" class="btn btn-link">Register</a>
+          <%--<a href="WEB-INF/page/reg.jsp" class="btn btn-link">Register</a>--%>
         </div>
           <p ng-repeat="i in array track by $index" class="alert alert-info">{{i}}</p>
       </form>
     </div>
 
-  </div>
+    <div ng-show="showList">
+      <h3 class="alert alert-info">You can:</h3>
+      <p ng-repeat="i in array track by $index">{{i}}</p>
+    </div>
+
+    </div>
 
   </body>
 </html>
