@@ -67,7 +67,7 @@ CREATE TABLE `Pages` (
 
 LOCK TABLES `Pages` WRITE;
 /*!40000 ALTER TABLE `Pages` DISABLE KEYS */;
-INSERT INTO `Pages` VALUES (1,'main.js',1,1),(2,'main.js',1,2),(3,'main.js',2,1);
+INSERT INTO `Pages` VALUES (1,'main.jsp',1,1),(2,'main.jsp',1,2),(3,'main.jsp',2,1);
 /*!40000 ALTER TABLE `Pages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,4 +138,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-03 10:15:57
+-- Dump completed on 2015-12-03 11:50:55
