@@ -35,34 +35,36 @@ public class MainController {
         return Collections.singletonList("test success");
     }
 
-    @RequestMapping(value = "/log/{username}", method = RequestMethod.POST)
-    public List<String> log(@PathVariable("username") String username) {
-
-        System.out.println(username);
-        return Collections.singletonList("response log");
-    }
-
-    /*@RequestMapping(value = "/log", method = RequestMethod.POST)
-    public List<UsersEntity> reg() {
-        System.out.println("LOG111");
+    @RequestMapping(value = "/log/{username}/{password}", method = RequestMethod.POST)
+    public List<String> log(@PathVariable("username") String username, @PathVariable("password") String password) {
         List list = null;
-        List<UsersEntity> listUsers = new ArrayList<>();
+        String result = "Undefined";
         try {
             list = implementsDAO.getList();
             for (Object object : list){
                 Object[] objects = (Object[])object;
-                System.out.println(objects[0].toString());
-                System.out.println(objects[1].toString());
-                System.out.println(objects[2].toString());
-                System.out.println(objects[3].toString());
-                listUsers.add(new UsersEntity(objects[1].toString(),
-                        objects[2].toString(),
-                        objects[3].toString()));
+                if (objects[1].toString().equals(username)){
+                    if (objects[2].toString().equals(password)){
+
+                        result = objects[3].toString();
+
+                    }
+                    else {
+                        result = "Incorrect password";
+                    }
+                    break;
+                }
             }
-            System.out.println();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return listUsers;
-    }*/
+
+        return Collections.singletonList(result);
+    }
+
+    List<String> getListPage(String id) {
+
+        return null;
+    }
+
 }
