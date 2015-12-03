@@ -32,6 +32,12 @@ public class MainController {
                             @PathVariable("password") String password) {
         List list = null;
         List<String> result = Collections.singletonList("Undefined");
+        result = getMessage(username, password, result);
+        return result;
+    }
+
+    private List<String> getMessage(@PathVariable("username") String username, @PathVariable("password") String password, List<String> result) {
+        List list;
         try {
             list = implementsDAO.getList();
 
